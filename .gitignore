@@ -3,4 +3,6 @@
 *.pdf
 *.aux
 *.out
+*.bbl
+*.blg
 *.nb

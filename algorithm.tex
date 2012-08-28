@@ -1,0 +1,33 @@
+\documentclass[cs4size,a4paper,adobefonts]{ctexart}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[colorlinks=true,linkcolor=black]{hyperref}
+\usepackage{indentfirst}
+\usepackage[a4paper,left=2.5cm,right=2.5cm,bottom=2.5cm,top=2.5cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Palatino}
+\setmonofont[Scale=MatchLowercase]{Monaco}
+\pagestyle{plain}
+\punctstyle{kaiming}
+\usepackage{unicode-math}
+\setmathfont{Asana Math}
+\begin{document}
+\title{\bfseries 算法有什么用}
+\author{\href{mailto:txyyss@gmail.com}{王盛颐}}
+\date{}
+\maketitle
+
+\section*{缘起}
+最近我的 iPad 程序
+\href{http://itunes.apple.com/app/grid-maze/id553265800?mt=8}{Grid
+  Maze} 在历经了 5 个月的开发，13 天的审核之后，终于在苹果应用商店上架
+了。这个程序的主要功能是能根据输入的文字或图案，生成一个迷宫，使得走出
+这个迷宫的唯一路径能形成当初输入的文字或图案。
+
+生成这样一个迷宫的想法最早可以追溯到 2007 年底，不过那时完全不知道该怎
+么做才好，于是也就是在脑子里徘徊了会儿，就放在一边了。2008 年的下半年，
+在看到一篇根据图形生成迷宫轮廓的文章\cite{Xu:2007:ImageMaze}时，我突然
+想明白该怎么做了，于是就拿 Mathematica 做了一些实验验证了我的想法。
+
+\bibliographystyle{plain}
+\bibliography{algorithm}
+\end{document}
