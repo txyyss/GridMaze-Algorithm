@@ -1,6 +1,6 @@
 \documentclass[cs4size,a4paper,adobefonts]{ctexart}
 \usepackage{amsmath,amsthm,amssymb}
-\usepackage[colorlinks=true,linkcolor=black]{hyperref}
+\usepackage[colorlinks=true,allcolors=black]{hyperref}
 \usepackage{indentfirst}
 \usepackage[a4paper,left=2.5cm,right=2.5cm,bottom=2.5cm,top=2.5cm]{geometry}
 \usepackage{fontspec}
@@ -10,6 +10,9 @@
 \punctstyle{kaiming}
 \usepackage{unicode-math}
 \setmathfont{Asana Math}
+
+\newcommand{\GridMaze}{\href{http://itunes.apple.com/app/grid-maze/id553265800?mt=8}{Grid Maze}}
+
 \begin{document}
 \title{\bfseries 算法有什么用}
 \author{\href{mailto:txyyss@gmail.com}{王盛颐}}
@@ -17,16 +20,29 @@
 \maketitle
 
 \section*{缘起}
-最近我的 iPad 程序
-\href{http://itunes.apple.com/app/grid-maze/id553265800?mt=8}{Grid
-  Maze} 在历经了 5 个月的开发，13 天的审核之后，终于在苹果应用商店上架
-了。这个程序的主要功能是能根据输入的文字或图案，生成一个迷宫，使得走出
-这个迷宫的唯一路径能形成当初输入的文字或图案。
+最近我的 iPad 程序 \GridMaze{} 在历经了 5 个月的开发，13 天的审核之后，
+终于在苹果应用商店上架了。这个程序的主要功能是能根据输入的文字或图案，
+生成一个迷宫，使得走出这个迷宫的唯一路径能形成当初输入的文字或图案。
 
 生成这样一个迷宫的想法最早可以追溯到 2007 年底，不过那时完全不知道该怎
-么做才好，于是也就是在脑子里徘徊了会儿，就放在一边了。2008 年的下半年，
-在看到一篇根据图形生成迷宫轮廓的文章\cite{Xu:2007:ImageMaze}时，我突然
-想明白该怎么做了，于是就拿 Mathematica 做了一些实验验证了我的想法。
+么做，于是这个想法也就是在脑子里徘徊了一阵，就置之一旁了。直到一年后也
+就是 2008 年底，在看到一篇根据图形生成迷宫轮廓的文章
+\cite{Xu:2007:ImageMaze}时，我突然想明白该怎么做了，于是就用
+Mathematica 做了一些试验验证了我的想法，之后就一边完善想法一边写程序，
+直到做出了一个以我名字为解法的迷宫。这个原型程序也就因为目标已达成而被
+束之高阁。2010年，在朋友的鼓励下，我用 Qt 写了这个迷宫生成程序的界面，
+同时用 C++ 重写了原先用 Java 和 Mathematica 写的部分，完善了一些功能，
+这就是
+\href{https://sites.google.com/site/txyyss/projects/text-maze-creator}{Text
+  Maze Creator}。这个程序依赖一个第三方的 TSP 求解程序和一个
+ActionScript 的编译器，操作起来很复杂，所以也没有提供下载，只是放了一些
+样例在网上。转眼就到了2012 年，由于陆续能收到请求生成迷宫的邮件，我决定
+写一个大家都能用的迷宫生成程序。我重新设计了界面，自己写了 TSP 的求解算
+法，这才有了 iPad 上的 \GridMaze。
+
+在开发 \GridMaze{} 的过程中，我遇到了很多有意思的问题，为了解决这些问题
+参考和设计了很多算法。我觉得有必要把这些问题和解决办法整理一番，也算是
+在初步完成这个项目之后，做一个总结报告。
 
 \bibliographystyle{plain}
 \bibliography{algorithm}
