@@ -48,14 +48,15 @@ ActionScript 的编译器，操作起来很复杂，所以也没有提供下载�
 在初步完成这个项目之后，做一个总结报告。
 
 \section{概述}
-名不正则言不顺，言不顺则事不成。我们先明确一下要解决的问题：生成一个迷
-宫，使得走出这个迷宫的唯一路径能形成指定的文字或图案。这句话简单是简单
-了，但不够精确，很多地方有歧义，需要进一步的解释来消除歧义。
+名不正则言不顺，言不顺则事不成。我先明确一下要解决的问题：生成一个迷宫，
+使得走出这个迷宫的唯一路径能形成指定的文字或图案。这句话不够精确，需要
+进一步的解释来消除歧义。
 
 首先是“迷宫”的意思。本文的迷宫专指一种需要玩家从一个指定的起点出发，在
 用墙隔断形成的分叉道路中辨识选择，最终到达指定终点的游戏。这样的迷宫具
-有很多种形式（图 \ref{fig:manyMazes}），本文进一步明确我们要生成的迷宫是外轮廓为矩形，分叉道路横
-平竖直，每一段墙的长度为单位长度整数倍的，不含有圈的标准迷宫（图 \ref{fig:rectMaze}）。
+有很多种形式（图 \ref{fig:manyMazes}），我要生成的迷宫是外轮廓为矩形，
+分叉道路横平竖直，每一段墙的长度为单位长度整数倍的，解法唯一的所谓“标准
+迷宫”（图 \ref{fig:rectMaze}）。
 
 \begin{figure}[htbp]
   \centering
@@ -78,6 +79,34 @@ ActionScript 的编译器，操作起来很复杂，所以也没有提供下载�
   \end{subfigure}
   \caption{各种不同类型的迷宫}\label{fig:manyMazes}
 \end{figure}
+
+接下来定义什么叫“路径形成指定的文字或图案”。我将文字或图案变成点阵（如
+  图 \ref{fig:abcGrid}），如果有条路径能把这个点阵串起来，并且这条路径
+上只遗漏了少量点阵中的点，只增加了少量不在这个点阵中的点。那么就可以说
+路径形成了指定的文字或图案（如图 \ref{fig:abcPath}）。当然，由于这条路
+径还要是“标准迷宫”的解答路径，所以还必须加上横平竖直，自身无交叉两个额
+外的条件。
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{abcGrid}
+    \caption{文字点阵}\label{fig:abcGrid}
+  \end{minipage}%
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{abcPath}
+    \caption{路径形成的文字}\label{fig:abcPath}
+  \end{minipage}
+\end{figure}
+
+在明确了这两点之后，要解决的问题也就很清楚了。首先要根据点阵生成解答路
+径，其次要根据解答路径生成迷宫。通过进一步的思考我发现，生成路径这个问
+题比生成迷宫要困难得多。本着先易后难的原则，下面我先介绍如何根据已有的
+解答路径，生成迷宫。
+
+\section{迷宫生成算法}
 
 \bibliographystyle{plain}
 \bibliography{algorithm}
