@@ -3,6 +3,8 @@
 \usepackage[colorlinks=true,allcolors=black]{hyperref}
 \usepackage{indentfirst}
 \usepackage[a4paper,left=2.5cm,right=2.5cm,bottom=2.5cm,top=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
 \usepackage{fontspec}
 \setmainfont{Palatino}
 \setmonofont[Scale=MatchLowercase]{Monaco}
@@ -12,6 +14,7 @@
 \setmathfont{Asana Math}
 
 \newcommand{\GridMaze}{\href{http://itunes.apple.com/app/grid-maze/id553265800?mt=8}{Grid Maze}}
+\graphicspath{{pic/}}
 
 \begin{document}
 \title{\bfseries 算法有什么用}
@@ -43,6 +46,38 @@ ActionScript 的编译器，操作起来很复杂，所以也没有提供下载�
 在开发 \GridMaze{} 的过程中，我遇到了很多有意思的问题，为了解决这些问题
 参考和设计了很多算法。我觉得有必要把这些问题和解决办法整理一番，也算是
 在初步完成这个项目之后，做一个总结报告。
+
+\section{概述}
+名不正则言不顺，言不顺则事不成。我们先明确一下要解决的问题：生成一个迷
+宫，使得走出这个迷宫的唯一路径能形成指定的文字或图案。这句话简单是简单
+了，但不够精确，很多地方有歧义，需要进一步的解释来消除歧义。
+
+首先是“迷宫”的意思。本文的迷宫专指一种需要玩家从一个指定的起点出发，在
+用墙隔断形成的分叉道路中辨识选择，最终到达指定终点的游戏。这样的迷宫具
+有很多种形式（图 \ref{fig:manyMazes}），本文进一步明确我们要生成的迷宫是外轮廓为矩形，分叉道路横
+平竖直，每一段墙的长度为单位长度整数倍的，不含有圈的标准迷宫（图 \ref{fig:rectMaze}）。
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[c]{0.31\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{rectMaze}
+    \caption{标准迷宫}\label{fig:rectMaze}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[c]{0.31\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{diskMaze}
+    \caption{圆形迷宫}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[c]{0.31\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{eulerMaze}
+    \caption{一笔画迷宫}
+  \end{subfigure}
+  \caption{各种不同类型的迷宫}\label{fig:manyMazes}
+\end{figure}
 
 \bibliographystyle{plain}
 \bibliography{algorithm}
