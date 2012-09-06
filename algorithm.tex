@@ -359,7 +359,8 @@ $n(\alpha)$ 表示路径中紧随在 $\alpha$ 之后的那个点；$p(\alpha)$ �
   d(\alpha,n(\alpha)) + d(\beta, n(\beta)) > d(\alpha, \beta) +
   d(n(\alpha), n(\beta))
 \end{equation}
-那么就可以通过翻转操作 $flip(n(\alpha), beta)$ 来得到一个更短的路径。缩短的长度是
+那么就可以通过翻转操作 $flip(n(\alpha), \beta)$ 来得到一个更短的路径。
+缩短的长度是
 \begin{equation}\label{eq:diff}
   d(\alpha,n(\alpha)) - d(n(\alpha), n(\beta)) + d(\beta, n(\beta)) -
   d(\alpha, \beta)
